@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+   <argument name="data" xsi:type="array">
+              
+      <item name="js_config" xsi:type="array">
+                     
+         <item name="provider" xsi:type="string">carousel_listing_edit.carousel_listing_edit_data_source</item>
+                     
+         <item name="deps" xsi:type="string">carousel_listing_edit.carousel_listing_edit_data_source</item>
+                 
+      </item>
+              
+      <item name="label" xsi:type="string" translate="true">Carousel Information</item>
+      <item name="buttons" xsi:type="array">
+            <item name="save" xsi:type="string">Voicyou\Carousel\Block\Adminhtml\Carousel\Edit\Button\SaveButton</item>
+        </item>        
+      <item name="config" xsi:type="array">
+                     
+         <item name="dataScope" xsi:type="string">data</item>
+                     
+         <item name="namespace" xsi:type="string">carousel_listing_edit</item>
+                 
+      </item>
+              
+      <item name="template" xsi:type="string">templates/form/collapsible</item>
+          
+   </argument>
+       
+   <dataSource name="carousel_listing_edit_data_source">
+              
+      <argument name="dataProvider" xsi:type="configurableObject">
+                     
+         <argument name="class" xsi:type="string">Voicyou\Carousel\Model\CarouselDataProvider</argument>
+                     
+         <argument name="name" xsi:type="string">carousel_listing_edit_data_source</argument>
+                     
+         <argument name="primaryFieldName" xsi:type="string">id</argument>
+                     
+         <argument name="requestFieldName" xsi:type="string">id</argument>
+
+         <argument name="data" xsi:type="array"> 
+          
+             <item name="config" xsi:type="array"> 
+
+                 <item name="submit_url" xsi:type="url" path="carousel/carousel/save"/> 
+
+             </item> 
+
+         </argument>        
+      </argument>
+              
+      <argument name="data" xsi:type="array">
+                     
+         <item name="js_config" xsi:type="array">
+                            
+            <item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+                        
+         </item>
+                 
+      </argument>
+          
+   </dataSource>
+       
+   <fieldset name="carousel_edit">
+              
+      <argument name="data" xsi:type="array">
+                     
+         <item name="config" xsi:type="array">
+                            
+            <item name="collapsible" xsi:type="boolean">false</item>
+                            
+            <item name="label" xsi:type="string" translate="true">Carousel Details</item>
+                            
+            <item name="sortOrder" xsi:type="number">20</item>
+                        
+         </item>
+                 
+      </argument>
+              
+      <field name="sort_order">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Sort Order</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">sortorder</item>
+                    <item name="dataScope" xsi:type="string">sort_order</item>
+                </item>
+            </argument>
+        </field>    
+       <field name="image">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="label" xsi:type="string" translate="true">Showcase Image</item>
+                <item name="formElement" xsi:type="string">fileUploader</item>
+                <item name="componentType" xsi:type="string">fileUploader</item>
+                <item name="notice" xsi:type="string" translate="true">Allowed file types: ico, png, gif, jpg, jpeg, apng, svg. Not all browsers support all these formats!</item>
+                <item name="maxFileSize" xsi:type="number">2097152</item>
+                <item name="allowedExtensions" xsi:type="string">jpg jpeg gif png svg</item>
+                <item name="uploaderConfig" xsi:type="array">
+                    <item name="url" xsi:type="string">carousel/carousel_image/upload</item>
+                </item>
+            </item>
+        </argument>
+        </field>
+        
+        <field name="image_description">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Description</item>
+                    <item name="formElement" xsi:type="string">textarea</item>
+                    <item name="source" xsi:type="string">imagedescription</item>
+                    <item name="dataScope" xsi:type="string">image_description</item>
+                </item>
+            </argument>
+        </field>
+          
+   </fieldset>
+</form>
